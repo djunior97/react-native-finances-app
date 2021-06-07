@@ -2,11 +2,13 @@ import React from "react";
 
 import { Container, Category, Icon } from "./styles";
 
-interface CategorySelectProps {
+interface SelectTransactionTypeButtonProps {
   title: string;
 }
 
-export function CategorySelect({ title }: CategorySelectProps) {
+export function SelectTransactionTypeButton({
+  title,
+}: SelectTransactionTypeButtonProps) {
   return (
     <Container>
       <Category>{title}</Category>
