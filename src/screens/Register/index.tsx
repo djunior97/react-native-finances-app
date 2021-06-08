@@ -8,7 +8,7 @@ import { Input } from "../../components/Form/Input";
 import { InputForm } from "../../components/Form/InputForm";
 import { Button } from "../../components/Form/Button";
 import { TransactionTypeButton } from "../../components/Form/TransactionTypeButton";
-import { SelectTransactionTypeButton } from "../../components/Form/SelectTransactionTypeButton";
+import { SelectCategoryButton } from "../../components/Form/SelectCategoryButton";
 
 import { SelectCategory } from "../SelectCategory";
 
@@ -122,7 +122,7 @@ export function Register() {
               />
             </TransactionsTypes>
 
-            <SelectTransactionTypeButton
+            <SelectCategoryButton
               title={category.name}
               onPress={handleOpenSelectCategoryModal}
             />

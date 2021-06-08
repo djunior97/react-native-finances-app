@@ -2,15 +2,15 @@ import React from "react";
 
 import { Container, Category, Icon } from "./styles";
 
-interface SelectTransactionTypeButtonProps {
+interface SelectCategoryButtonProps {
   title: string;
   onPress: () => void;
 }
 
-export function SelectTransactionTypeButton({
+export function SelectCategoryButton({
   title,
   onPress,
-}: SelectTransactionTypeButtonProps) {
+}: SelectCategoryButtonProps) {
   return (
     <Container onPress={onPress}>
       <Category>{title}</Category>
