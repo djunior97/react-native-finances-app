@@ -3,14 +3,15 @@ import { TextInputProps } from "react-native";
 import { Control, Controller } from "react-hook-form";
 
 import { Input } from "../Input";
-import { Container } from "./styles";
+import { Container, Error } from "./styles";
 
 interface InputFormProps extends TextInputProps {
   control: Control;
   name: string;
+  error: string;
 }
 
-export function InputForm({ control, name, ...rest }: InputFormProps) {
+export function InputForm({ control, name, error, ...rest }: InputFormProps) {
   return (
     <Container>
       <Controller
@@ -19,7 +20,9 @@ export function InputForm({ control, name, ...rest }: InputFormProps) {
           <Input {...rest} onChangeText={onChange} value={value} />
         )}
         name={name}
-      ></Controller>
+      />
+
+      {error && <Error>{error}</Error>}
     </Container>
   );
 }
