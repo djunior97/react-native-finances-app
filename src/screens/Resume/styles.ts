@@ -1,5 +1,8 @@
 import styled from "styled-components/native";
 import { RFValue } from "react-native-responsive-fontsize";
+import { FlatList } from "react-native";
+
+import { CategoryData } from ".";
 
 export const Container = styled.View`
   flex: 1;
@@ -23,6 +26,20 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
 `;
 
-export const Content = styled.ScrollView.attrs({
-  contentContainerStyle: { flex: 1, padding: 24 },
-})``;
+export const Content = styled.View`
+  padding: 0 24px;
+  flex: 1;
+`;
+
+export const ChartContainer = styled.View`
+  width: 100%;
+  align-items: center;
+`;
+
+export const HistoryCardList = styled(
+  FlatList as new () => FlatList<CategoryData>
+).attrs({
+  showsVerticalScrollIndicator: false,
+})`
+  width: 100%;
+`;
