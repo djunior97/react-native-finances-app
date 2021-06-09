@@ -28,8 +28,6 @@ import {
   LogoutButton,
   LoadContainer,
 } from "./styles";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
 export interface TransactionProps extends TransactionCardDataProps {
   id: string;
 }
