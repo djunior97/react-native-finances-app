@@ -147,7 +147,9 @@ export function Dashboard() {
       },
     });
 
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
   }
 
   useEffect(() => {
