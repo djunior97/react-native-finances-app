@@ -6,6 +6,11 @@ async function getData(key: string) {
   return data ? JSON.parse(data) : data;
 }
 
+async function setData(key: string, data: any) {
+  await AsyncStorage.setItem(key, JSON.stringify(data));
+}
+
 export const storage = {
   getData,
+  setData,
 };
