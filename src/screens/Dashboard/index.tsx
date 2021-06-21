@@ -10,6 +10,7 @@ import {
 } from "../../components/TransactionCard";
 
 import { storage } from "../../utils";
+import { useAuth } from "../../hooks/auth";
 
 import {
   Container,
@@ -50,6 +51,7 @@ export function Dashboard() {
   );
 
   const theme = useTheme();
+  const { signOut } = useAuth();
 
   function getLastTransactionDate(
     collection: TransactionProps[],
@@ -185,7 +187,7 @@ export function Dashboard() {
                 </User>
               </UserInfo>
 
-              <LogoutButton onPress={() => {}}>
+              <LogoutButton onPress={signOut}>
                 <Icon name="power" />
               </LogoutButton>
             </UserWrapper>

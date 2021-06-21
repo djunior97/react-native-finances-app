@@ -10,7 +10,12 @@ async function setData(key: string, data: any) {
   await AsyncStorage.setItem(key, JSON.stringify(data));
 }
 
+async function removeData(key: string) {
+  await AsyncStorage.removeItem(key);
+}
+
 export const storage = {
   getData,
   setData,
+  removeData,
 };
