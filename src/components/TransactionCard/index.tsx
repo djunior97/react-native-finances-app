@@ -1,4 +1,6 @@
 import React from "react";
+import { RectButtonProps } from "react-native-gesture-handler";
+
 import { categories } from "../../utils/categories";
 
 import {
@@ -20,11 +22,11 @@ export interface TransactionCardDataProps {
   date: string;
 }
 
-interface TransactionCardProps {
+interface TransactionCardProps extends RectButtonProps {
   data: TransactionCardDataProps;
 }
 
-export function TransactionCard({ data }: TransactionCardProps) {
+export function TransactionCard({ data, ...rest }: TransactionCardProps) {
   const [category] = categories.filter((item) => item.key === data.category);
 
   return (
