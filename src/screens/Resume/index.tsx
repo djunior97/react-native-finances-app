@@ -10,6 +10,7 @@ import { ptBR } from "date-fns/locale";
 import { HistoryCard } from "../../components/HistoryCard";
 
 import { storage } from "../../utils";
+import { useAuth } from "../../hooks/auth";
 import { categories } from "../../utils/categories";
 import { TransactionProps } from "../Dashboard";
 
@@ -45,6 +46,7 @@ export function Resume() {
   );
 
   const theme = useTheme();
+  const { user } = useAuth();
 
   function handleChangeDate(action: "prev" | "next") {
     setSelectedDate(
@@ -57,7 +59,7 @@ export function Resume() {
   async function loadData() {
     setIsLoading(true);
 
-    const dataKey = "@gofinances:transactions";
+    const dataKey = `@gofinances:transactions_user:${user.id}`;
 
     const response = await storage.getData(dataKey);
     const transactions = response ? response : [];

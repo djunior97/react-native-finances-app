@@ -51,7 +51,7 @@ export function Dashboard() {
   );
 
   const theme = useTheme();
-  const { signOut } = useAuth();
+  const { signOut, user } = useAuth();
 
   function getLastTransactionDate(
     collection: TransactionProps[],
@@ -73,7 +73,7 @@ export function Dashboard() {
   }
 
   async function loadTransactions() {
-    const dataKey = "@gofinances:transactions";
+    const dataKey = `@gofinances:transactions_user:${user.id}`;
 
     const response = await storage.getData(dataKey);
     const transactions = response ? response : [];
@@ -177,13 +177,13 @@ export function Dashboard() {
               <UserInfo>
                 <Photo
                   source={{
-                    uri: "https://avatars.githubusercontent.com/u/48491005?v=4",
+                    uri: user.photo,
                   }}
                 />
 
                 <User>
                   <UserGreeting>Olá, </UserGreeting>
-                  <UserName>Dirceu</UserName>
+                  <UserName>{user.name}</UserName>
                 </User>
               </UserInfo>
 
